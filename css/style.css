@@ -11,11 +11,12 @@ body{
   align-items: center;
   height: 100vh;
   background-image: linear-gradient( to bottom, #00bfa5 0%, #00bfa5 17%, #d4dbd9 17%, #d4dbd9 100% );
+  overflow: hidden;
 }
 
 #app{
   width:90%;
-  min-height:90%;
+  height:90%;
   background: #fff;
   display:flex;
 }
@@ -89,7 +90,6 @@ aside{
   border: 1px solid;
   border-radius: 5px;
   padding: 10px 5px;
-  border-bottom: 1px solid #e1e1e1;
   align-items: center;
 }
 
@@ -103,7 +103,7 @@ aside{
 
 #contactlist{
   flex-grow: 1;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 #contactlist ul li{
@@ -151,10 +151,11 @@ header i {
 
 main section{
   padding:40px;
-  flex-grow: 1;
+  flex-grow: 2;
   background-image: url(../assets/mine.jpg);
   background-position: center;
   overflow: auto;
+  max-height: calc(100vh - 100px );
 }
 
 main section div{
@@ -182,9 +183,11 @@ main section div{
 
 .received p {
   background-color: #fff;
+  position: relative;
 }
 
 .sent p{
+  position: relative;
   background-color: #dcf8c6;
 }
 
@@ -209,4 +212,26 @@ i{
   color:#919191;
   font-size: 18px;
   margin: 20px;
+}
+
+.received p::before{
+  content:'';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  bottom: 15px;
+  left: -5px;
+  transform: rotate(45deg);
+}
+
+.sent p::before{
+  content:'';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background:#dcf8c6;
+  bottom: 15px;
+  right:-5px ;
+  transform: rotate(45deg);
 }
