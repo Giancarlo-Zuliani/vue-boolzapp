@@ -14,9 +14,8 @@ body{
 }
 
 #app{
-  width:85%;
-  height:90%;
-  min-width: 80%;
+  width:90%;
+  min-height:90%;
   background: #fff;
   display:flex;
 }
@@ -25,7 +24,99 @@ aside{
   width:35%;
   display: flex;
   flex-direction: column;
-  background-color: red;
+}
+
+#userinfo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60px;
+}
+
+#userinfo img{
+  max-width: 40px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+#userinfo h4{
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+#userinfo i {
+  font-size: 20px;
+  margin-right: 20px;
+  color:#999;
+}
+
+#alarmbanner{
+  height:70px;
+  background-color: #9de1fe;
+  display: flex;
+  align-items: center;
+}
+
+#desktopnotification{
+  font-size: 12px;
+  color: #41619d;
+}
+
+#alarmbanner i{
+  padding: 10px 9px;
+  font-size: 18px;
+  background: #fff;
+  border-radius: 50%;
+  color: #9de1fe;
+  margin: 0 10px;
+}
+
+#searcbar{
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  background: #ededed;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+#searcbar div{
+  display:flex;
+  width: 97%;
+  height: 85%;
+  margin: auto;
+  background: #fff;
+  color: #e1e1e1;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px 5px;
+  border-bottom: 1px solid #e1e1e1;
+  align-items: center;
+}
+
+#searcbar input{
+  line-height: 20px;
+  margin-left: 10px;
+  width: 100%;
+  color: #e1e1e1;
+  border: none;
+}
+
+#contactlist{
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#contactlist ul li{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e1e1e1;
+  list-style: none;
+}
+
+#contactlist img{
+  max-width:50px;
+  border-radius: 50%;
+  margin:5px;
 }
 
 main{
@@ -55,5 +146,5 @@ main footer{
   height:50px;
   display: flex;
   align-items: center;
-  
+
 }
