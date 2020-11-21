@@ -10,7 +10,7 @@ body{
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: linear-gradient( to bottom, #00bfa5 0%, #00bfa5 17%, #d4dbd9 17%, #d4dbd9 100% );
+  background-image: linear-gradient( to bottom, #00bfa5 0%, #00bfa5 20%, #d4dbd9 20%, #d4dbd9 100% );
   overflow: hidden;
 }
 
@@ -111,6 +111,7 @@ aside{
   align-items: center;
   border-bottom: 1px solid #e1e1e1;
   list-style: none;
+  position: relative;
 }
 
 #contactlist img{
@@ -127,7 +128,7 @@ main{
 }
 
 main header{
-  height:60px;
+  min-height:60px;
   background-color: #ededed;
   display: flex;
   align-items: center;
@@ -234,4 +235,30 @@ i{
   bottom: 15px;
   right:-5px ;
   transform: rotate(45deg);
+}
+
+
+.timeinfos{
+  position:absolute;
+  right:3px;
+  top:3px;
+  font-size: 9px;
+  color:#919191;
+}
+
+.textpreview{
+  position:absolute;
+  bottom:3px;
+  font-size: 12px;
+  left:65px;
+  color:#919191;
+}
+
+
+.chatdata{
+  position:absolute;
+  bottom:3px;
+  right:5px;
+  font-size: 9px;
+  color:#919191;
 }
