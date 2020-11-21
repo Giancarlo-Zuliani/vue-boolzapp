@@ -95,8 +95,7 @@ aside{
 
 #searcbar input{
   line-height: 20px;
-  margin-left: 10px;
-  width: 100%;
+  width:60%;
   color: #e1e1e1;
   border: none;
 }
@@ -240,7 +239,7 @@ i{
 
 .timeinfos{
   position:absolute;
-  right:3px;
+  right:12px;
   top:3px;
   font-size: 9px;
   color:#919191;
@@ -261,4 +260,20 @@ i{
   right:5px;
   font-size: 9px;
   color:#919191;
+}
+
+@media all and (max-width:890px){
+  #userinfo h4{
+    display:none;
+  }
+}
+
+
+@media all and (max-width:700px){
+  #userinfo img{
+    display:none;
+  }
+  #alarmbanner{
+    display: none;
+  }
 }
