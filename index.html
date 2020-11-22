@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="utf-8">
@@ -17,7 +16,7 @@
       <aside>
         <div id="userinfo">
           <img src="assets/avatar_io.jpg" alt="">
-          <h4>Nome utente</h4>
+          <h4>Nome utente </h4>
           <i class='fas fa-circle-notch'></i>
           <i class='fas fa-comment-alt'></i>
           <i class='fas fa-ellipsis-v'></i>
@@ -128,8 +127,11 @@
           </div>
         </section>
         <footer>
-          <i class="far fa-smile"></i>
-          <input type="text" placeholder=" Scrivi un messaggio">
+          <i @click='toogleEmoji' class="far fa-smile"></i>
+          <div v-if='!emotiHidden' id="emojicontainer">
+            <button type="button" v-for='(emoji, index) in emoticonArray' @click='writeEmoji(index)' name="button">{{emoji}}</button>
+          </div>
+          <input type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </footer>
       </main>

@@ -193,9 +193,10 @@ main section div{
 
 main footer{
   background-color: #ededed;
-  height:50px;
+  min-height:50px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 footer input{
@@ -206,6 +207,10 @@ font-size: 12px;
 padding-left: 10px;
 line-height: 30px;
 color: #b7b7b7;
+min-height: 80%;
+overflow:hidden;
+word-wrap: break-word;
+word-break: break-all;
 }
 
 i{
@@ -276,4 +281,24 @@ i{
   #alarmbanner{
     display: none;
   }
+}
+
+#emojicontainer{
+  position:absolute;
+  top:-250px;
+  left:10px;
+  max-width: 140px;
+  max-height: 220px;
+  border:solid 1px #fff;
+  background-color: #fff;
+}
+
+#emojicontainer button{
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+
 }
