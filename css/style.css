@@ -284,15 +284,15 @@ i{
 }
 
 #emojicontainer{
-  position:absolute;
-  top:-250px;
-  left:10px;
-  max-width: 140px;
-  max-height: 220px;
-  border:solid 1px #fff;
+  position: absolute;
+  top: -245px;
+  left: 10px;
+  max-width: 153px;
+  border: solid 1px #fff;
   background-color: #fff;
+  padding: 8px;
+  border-radius: 10px;
 }
-
 #emojicontainer button{
   margin: 0;
   border: none;
@@ -300,5 +300,9 @@ i{
   background: none;
   font-size: 14px;
   cursor: pointer;
+  border-radius: 20%;
+}
 
+#emojicontainer button:hover{
+  background-color: #919191;
 }
