@@ -72,7 +72,7 @@ aside{
   margin: 0 10px;
 }
 
-#searcbar{
+#searchbar{
   display: flex;
   justify-content: center;
   height: 35px;
@@ -80,7 +80,7 @@ aside{
   border-bottom: 1px solid #e1e1e1;
 }
 
-#searcbar div{
+#searchbar div{
   display:flex;
   width: 97%;
   height: 85%;
@@ -93,7 +93,7 @@ aside{
   align-items: center;
 }
 
-#searcbar input{
+#searchbar input{
   line-height: 20px;
   width:60%;
   color: #e1e1e1;
