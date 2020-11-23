@@ -60,14 +60,10 @@ const APP = new Vue({
       this.textarea += this.emoticonArray[i];
     },
     textPreview(i){
-      var last = (this.contacts[i].messages.length) - 1
-      var prev = this.contacts[i].messages[last].text;
-      var x ='';
-      for(i = 0 ; i < 15 ;i++){
-       x += prev[i];
-      };
-      x += '..';
-      return x
+      let index = (this.contacts[i].messages.length) - 1
+      let text = this.contacts[i].messages[index].text;
+      let preview = text.substring(0,10) + '...';
+      return preview
     }
   }
 });
