@@ -11,7 +11,8 @@ const APP = new Vue({
       img : 'assets/avatar_1.jpg',
       messages :[
         {text:'vieni  bere una birra?',status: 'received',datainfo:'10/01/2020 16:14:50'},
-        {text:'non posso la morosa mi rompe le palle',status:'sent',datainfo:'10/01/2020 16:15:00'}
+        {text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',status:'sent',datainfo:'10/01/2020 16:15:00'},
+        {text:'WTF!!? che problemi hai?!',status: 'received',datainfo:'10/01/2020 16:14:50'},
       ]
     },
     {
