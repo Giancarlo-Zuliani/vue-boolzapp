@@ -105,9 +105,12 @@ aside{
   flex-grow: 1;
   overflow: auto;
 }
-
+.activecontact{
+  background-color: #ededed;
+}
 #contactlist ul li{
   display: flex;
+  cursor: pointer;
   align-items: center;
   border-bottom: 1px solid #e1e1e1;
   list-style: none;

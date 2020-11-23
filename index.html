@@ -36,7 +36,7 @@
         </div>
         <div id="contactlist">
           <ul>
-            <li v-for = "(contact,index) in contact">
+            <li :class='{activecontact : index===chatindex}'v-for = "(contact,index) in contact" @click='chatindex = index'>
               <img :src="contact.img" alt="">
               <p>{{contact.name}}</p>
               <span class="textpreview">ok...</span>
@@ -49,10 +49,10 @@
       </aside>
       <main>
         <header>
-          <img src="assets/avatar_1.jpg" alt="">
+          <img :src="contact[chatindex].img" alt="">
           <div id="chatinfos">
-            <h4>Michele</h4>
-            <p>Ultimo accesso 10/01/2020 16:15:22</p>
+            <h4>{{contact[chatindex].name}}</h4>
+            <p>{{contact[chatindex].lastOnline}}</p>
           </div>
           <i class='fas fa-search'></i>
           <i class='fas fa-paperclip'></i>
