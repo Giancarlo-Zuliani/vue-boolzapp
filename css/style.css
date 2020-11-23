@@ -98,6 +98,7 @@ aside{
   width:60%;
   color: #e1e1e1;
   border: none;
+  outline: none;
 }
 
 #contactlist{
@@ -208,9 +209,6 @@ padding-left: 10px;
 line-height: 30px;
 color: #b7b7b7;
 min-height: 80%;
-overflow:hidden;
-word-wrap: break-word;
-word-break: break-all;
 }
 
 i{

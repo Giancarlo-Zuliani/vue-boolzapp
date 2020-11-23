@@ -36,30 +36,11 @@
         </div>
         <div id="contactlist">
           <ul>
-            <li>
-              <img src="assets/avatar_1.jpg" alt="">
-              <p>Michele</p> <br>
+            <li v-for = "(contact,index) in contact">
+              <img :src="contact.img" alt="">
+              <p>{{contact.name}}</p>
               <span class="textpreview">ok...</span>
-              <span class="timeinfos">10/10/2020 18:55:59</span>
-            </li>
-            <li>
-              <img src="assets/avatar_2.jpg" alt="">
-              <span>Fabio</span>
-              <span class="textpreview">ok...</span>
-              <span class="timeinfos">10/10/2020 18:55:59</span>
-
-            </li>
-            <li>
-              <img src="assets/avatar_3.jpg" alt="">
-              <span>Samuele</span>
-              <span class="textpreview">ok...</span>
-              <span class="timeinfos">10/10/2020 18:55:59</span>
-            </li>
-            <li>
-              <img src="assets/avatar_4.jpg" alt="">
-              <span>Luisa</span>
-              <span class="textpreview">ok...</span>
-              <span class="timeinfos">10/10/2020 18:55:59</span>
+              <span class="timeinfos">{{contact.lastOnline}}</span>
             </li>
           </ul>
 
