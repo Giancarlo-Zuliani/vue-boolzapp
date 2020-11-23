@@ -35,14 +35,14 @@
         <div id="searchbar">
           <div class="">
             <i class="fas fa-search"></i>
-            <input type="text" name="search" placeholder="Cerca">
+            <input type="text" name="search" v-model="searchInput" @keyup="searchContact()" placeholder="Cerca">
           </div>
         </div>
 
         <!-- CONTACT LIST -->
         <div id="contactlist">
           <ul>
-            <li :class='{activecontact: index===chatindex}'v-for = "(contact,index) in contacts" @click='chatindex = index'>
+            <li :class='{activecontact: index===chatindex}'  v-for = "(contact,index) in contacts" v-show="contact.display" @click='chatindex = index'>
               <img :src="contact.img" alt="">
               <p>{{contact.name}}</p>
               <span class="textpreview">{{textPreview(index)}}</span>
