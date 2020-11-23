@@ -36,7 +36,7 @@
         </div>
         <div id="contactlist">
           <ul>
-            <li :class='{activecontact : index===chatindex}'v-for = "(contact,index) in contact" @click='chatindex = index'>
+            <li :class='{activecontact: index===chatindex}'v-for = "(contact,index) in contacts" @click='chatindex = index'>
               <img :src="contact.img" alt="">
               <p>{{contact.name}}</p>
               <span class="textpreview">ok...</span>
@@ -49,62 +49,20 @@
       </aside>
       <main>
         <header>
-          <img :src="contact[chatindex].img" alt="">
+          <img :src="contacts[chatindex].img" alt="">
           <div id="chatinfos">
-            <h4>{{contact[chatindex].name}}</h4>
-            <p>{{contact[chatindex].lastOnline}}</p>
+            <h4>{{contacts[chatindex].name}}</h4>
+            <p>{{contacts[chatindex].lastOnline}}</p>
           </div>
           <i class='fas fa-search'></i>
           <i class='fas fa-paperclip'></i>
           <i class='fas fa-ellipsis-v'></i>
         </header>
         <section>
-          <div class="received">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
+          <div v-for="(ele,index) in contacts[chatindex].messages" :class ="ele.status">
+            <p>{{ele.text}}
+              <span class="chatdata">{{ele.datainfo}}</span>
             </p>
-          </div>
-          <div class="sent">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div>
-          <div class="received">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div>
-          <div class="received">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div>
-          <div class="received">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div>
-          <div class="received">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div>
-          <div class="sent">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div><div class="sent">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div><div class="sent">
-            <p>Vieni a bere una birra?
-              <span class="chatdata">10/10/2020 20:10:55</span>
-            </p>
-          </div><div class="sent">
-            <p>Vieni a bere una birra?Vieni a bere una birra?Vieni a bere una birra?Vieni a bere una birra?Vieni a bere una birra?Vieni a bere una birra?Vieni a bere una birra?
-            <span class="chatdata">10/10/2020 18:59:55</span>
-           </p>
           </div>
         </section>
         <footer>
