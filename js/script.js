@@ -58,6 +58,16 @@ const APP = new Vue({
     },
     writeEmoji(i){
       this.textarea += this.emoticonArray[i];
+    },
+    textPreview(i){
+      var last = (this.contacts[i].messages.length) - 1
+      var prev = this.contacts[i].messages[last].text;
+      var x ='';
+      for(i = 0 ; i < 15 ;i++){
+       x += prev[i];
+      };
+      x += '..';
+      return x
     }
   }
 });

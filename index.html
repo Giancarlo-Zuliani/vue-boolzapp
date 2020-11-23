@@ -45,7 +45,7 @@
             <li :class='{activecontact: index===chatindex}'v-for = "(contact,index) in contacts" @click='chatindex = index'>
               <img :src="contact.img" alt="">
               <p>{{contact.name}}</p>
-              <span class="textpreview">ok...</span>
+              <span class="textpreview">{{textPreview(index)}}</span>
               <span class="timeinfos">{{contact.lastOnline}}</span>
             </li>
           </ul>
