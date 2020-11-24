@@ -87,6 +87,7 @@ const APP = new Vue({
     },
     addMessage(){
       if(this.textarea !== ''){
+        this.messageSentSound();
         let newmessage = {text:this.textarea,status:'sent',datainfo : this.getDate(),dropdown:false};
         this.contacts[this.chatindex].messages.push(newmessage);
         this.textarea = '';
@@ -112,6 +113,7 @@ const APP = new Vue({
         let newmessage = {text:this.answer.value.joke,status:'received',datainfo:this.getDate(),dropdown:false};
         this.contacts[this.chatindex].messages.push(newmessage);
         this.scrollDown();
+        this.messageReceivedSound();
       },1000)
     },
     scrollDown(){
@@ -135,8 +137,17 @@ const APP = new Vue({
       this.answer = JSON.parse(result);
       console.log(this.answer)
         })
-
         .catch(error => console.log('error', error));
+    },
+    messageSentSound(){
+      var audio = new Audio('assets/message_sent.mp3');
+      audio.volume = 0.5;
+      audio.play();
+    },
+    messageReceivedSound(){
+      var audio = new Audio('assets/incoming.mp3');
+      audio.volume = 0.5;
+      audio.play();
     }
   }
 });
