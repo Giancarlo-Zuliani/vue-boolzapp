@@ -155,7 +155,7 @@ header i {
 }
 
 main section{
-  padding:40px;
+  padding:20px;
   flex-grow: 2;
   background-image: url(../assets/mine.jpg);
   background-position: center;
@@ -179,7 +179,7 @@ main section div{
   justify-content: flex-start;
 }
 
-.received p , .sent p{
+.received div , .sent div{
   min-width: 30%;
   max-width:80%;
   padding:10px 10px 20px 10px;
@@ -187,14 +187,29 @@ main section div{
   margin:10px;
 }
 
-.received p {
+.received div {
   background-color: #fff;
   position: relative;
+  padding-right: 30px;
 }
 
-.sent p{
+.sent div{
   position: relative;
   background-color: #dcf8c6;
+  padding-left: 30px;
+}
+.dropdownarrow{
+  margin: 0;
+  width:50px;
+  height:20px;
+}
+.dropdown{
+  position:absolute;
+  background-color: #ededed;
+  padding: 10px;
+  z-index: 5;
+  list-style: none;
+  display: none;
 }
 
 main footer{
@@ -222,7 +237,7 @@ i{
   margin: 20px;
 }
 
-.received p::before{
+.received div::before{
   content:'';
   position: absolute;
   width: 10px;
@@ -233,7 +248,7 @@ i{
   transform: rotate(45deg);
 }
 
-.sent p::before{
+.sent div::before{
   content:'';
   position: absolute;
   width: 10px;
@@ -268,6 +283,10 @@ i{
   right:5px;
   font-size: 9px;
   color:#919191;
+}
+
+.display{
+  display: block;
 }
 
 @media all and (max-width:890px){

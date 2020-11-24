@@ -69,9 +69,11 @@
         <!-- CHAT -->
         <section>
           <div v-for="(ele,index) in contacts[chatindex].messages" :class ="ele.status">
-            <p>{{ele.text}}
+            <div>{{ele.text}}
+              <i class="dropdownarrow fas fa-chevron-down" @click="toggleDropdown(index)"><ul class="dropdown" :class="{display :ele.dropdown }"> <li>elimina</li> </ul></i>
+
               <span class="chatdata">{{ele.datainfo}}</span>
-            </p>
+            </div>
           </div>
         </section>
         <!-- NEW MESSAGE SECTION -->
