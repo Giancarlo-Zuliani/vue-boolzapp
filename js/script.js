@@ -63,6 +63,7 @@ const APP = new Vue({
     },
     writeEmoji(i){
       this.textarea += this.emoticonArray[i];
+      this.$refs.newmessage.focus()
     },
     textPreview(i){
       let index = (this.contacts[i].messages.length) - 1

@@ -80,7 +80,7 @@
           <div v-if='!emotiHidden' id="emojicontainer">
             <button type="button" v-for='(emoji, index) in emoticonArray' @click='writeEmoji(index)' name="button">{{emoji}}</button>
           </div>
-          <input type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio">
+          <input ref="newmessage" type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </footer>
       </main>
