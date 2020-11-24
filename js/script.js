@@ -89,6 +89,10 @@ const APP = new Vue({
         let newmessage = {text:this.textarea,status:'sent',datainfo : this.getDate(),dropdown:false};
         this.contacts[this.chatindex].messages.push(newmessage);
         this.textarea = '';
+        setTimeout(()=>{
+        var container = document.querySelector("section");
+        container.scrollTop = container.scrollHeight;
+        },5)
       };
     },
     getDate(){
@@ -100,12 +104,5 @@ const APP = new Vue({
       let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + x.getHours() + ':' + minutes + ':' + seconds;
       return datatext;
     },
-    scrollToEnd() {
-      var container = this.$el.querySelector("section");
-      container.scrollTop = container.scrollHeight;
-    }
-  },
-  updated(){
-    this.scrollToEnd()
   }
 });

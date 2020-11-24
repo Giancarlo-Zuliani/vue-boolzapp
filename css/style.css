@@ -182,7 +182,7 @@ main section div{
 .received div , .sent div{
   min-width: 30%;
   max-width:80%;
-  padding:10px 10px 20px 10px;
+  padding:10px 30px 20px 10px;;
   border-radius: 10px;
   margin:10px;
 }
@@ -196,7 +196,7 @@ main section div{
 .sent div{
   position: relative;
   background-color: #dcf8c6;
-  padding-left: 30px;
+  padding-right: 30px;
 }
 .dropdownarrow{
   display: none;
