@@ -141,12 +141,12 @@ const APP = new Vue({
     },
     messageSentSound(){
       var audio = new Audio('assets/message_sent.mp3');
-      audio.volume = 0.5;
+      audio.volume = 0.1;
       audio.play();
     },
     messageReceivedSound(){
       var audio = new Audio('assets/incoming.mp3');
-      audio.volume = 0.5;
+      audio.volume = 0.1;
       audio.play();
     }
   }
