@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--Nulla dies sine linea-->
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div id="app">
+      <!-- ASIDE -->
+      <aside>
+        <div id="userinfo">
+          <img src="assets/avatar_io.jpg" alt="">
+          <h4>Nome utente </h4>
+          <i class='fas fa-circle-notch'></i>
+          <i class='fas fa-comment-alt'></i>
+          <i class='fas fa-ellipsis-v'></i>
+        </div>
+
+        <div id='alarmbanner'>
+          <i class='fas fa-bell-slash'></i>
+          <div>
+            <h6>Ricevi notifiche di nuovi messaggi</h6>
+            <a id="desktopnotification" href="#">Attiva notifiche desktop</a>
+          </div>
+        </div>
+        <!-- SEARCHBAR -->
+        <div id="searchbar">
+          <div class="">
+            <i class="fas fa-search"></i>
+            <input type="text" name="search" v-model="searchInput" @keyup="searchContact()" placeholder="Cerca">
+          </div>
+        </div>
+
+        <!-- CONTACT LIST -->
+        <div id="contactlist">
+          <ul>
+            <li :class='{activecontact: index===chatindex}'  v-for = "(contact,index) in contacts" v-show="contact.display" @click='chatindex = index'>
+              <img :src="contact.img" alt="">
+              <p>{{contact.name}}</p>
+              <span class="textpreview">{{textPreview(index)}}</span>
+              <span class="timeinfos">{{contact.lastOnline}}</span>
+            </li>
+          </ul>
+
+        </div>
+
+      </aside>
+
+      <main>
+        <!-- ACTIVE CHAT INFO -->
+        <header>
+          <img :src="contacts[chatindex].img" alt="">
+          <div id="chatinfos">
+            <h4>{{contacts[chatindex].name}}</h4>
+            <p>ultimo accesso : {{contacts[chatindex].lastOnline}}</p>
+          </div>
+          <i class='fas fa-search'></i>
+          <i class='fas fa-paperclip'></i>
+          <i class='fas fa-ellipsis-v'></i>
+        </header>
+        <!-- CHAT -->
+        <section>
+          <div v-for="(ele,index) in contacts[chatindex].messages" :class ="ele.status">
+            <div>{{ele.text}}
+              <i class="dropdownarrow fas fa-chevron-down" @click="toggleDropdown(index)"><ul class="dropdown" @mouseleave='toggleDropdown(index)' :class="{display :ele.dropdown }"> <li @click="deleteMessage(index)">elimina</li> </ul></i>
+              <span class="chatdata">{{ele.datainfo}}</span>
+            </div>
+          </div>
+        </section>
+        <!-- NEW MESSAGE SECTION -->
+        <footer>
+          <i @click='toogleEmoji' class="far fa-smile"></i>
+          <div v-if='!emotiHidden' id="emojicontainer">
+            <button type="button" v-for='(emoji, index) in emoticonArray' @click='writeEmoji(index)' name="button">{{emoji}}</button>
+          </div>
+          <input ref="newmessage" type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio" @keyup.enter='addMessage()'>
+          <i class="fas fa-microphone"></i>
+        </footer>
+      </main>
+    </div>
+    <script src="js/script.js" charset="utf-8"></script>
+  </body>
+</html>
