@@ -89,10 +89,8 @@ const APP = new Vue({
         let newmessage = {text:this.textarea,status:'sent',datainfo : this.getDate(),dropdown:false};
         this.contacts[this.chatindex].messages.push(newmessage);
         this.textarea = '';
-        setTimeout(()=>{
-        var container = document.querySelector("section");
-        container.scrollTop = container.scrollHeight;
-        },5)
+        this.scrollDown();
+        this.autoAnswer()
       };
     },
     getDate(){
@@ -106,7 +104,19 @@ const APP = new Vue({
     },
     deleteMessage(i){
       this.contacts[this.chatindex].messages.splice(i,1);
-      APP.$forceUpdate()
+    },
+    autoAnswer(){
+      setTimeout(()=>{
+        let newmessage = {text:'si,certo',status:'received',datainfo:this.getDate(),dropdown:false};
+        this.contacts[this.chatindex].messages.push(newmessage);
+        this.scrollDown();
+      },1000)
+    },
+    scrollDown(){
+      setTimeout(()=>{
+        var container = document.querySelector("section");
+        container.scrollTop = container.scrollHeight;
+      },5);
     }
   }
 });
