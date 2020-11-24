@@ -112,7 +112,7 @@ const APP = new Vue({
         let newmessage = {text:this.answer.value.joke,status:'received',datainfo:this.getDate(),dropdown:false};
         this.contacts[this.chatindex].messages.push(newmessage);
         this.scrollDown();
-      },2500)
+      },1000)
     },
     scrollDown(){
       setTimeout(()=>{
