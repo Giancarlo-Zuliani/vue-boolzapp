@@ -95,6 +95,13 @@ const APP = new Vue({
       let x = new Date();
       let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + x.getHours() + ':' + x.getMinutes() + ':' + x.getSeconds();
       return datatext;
+    },
+    scrollToEnd() {
+      var container = this.$el.querySelector("section");
+      container.scrollTop = container.scrollHeight;
     }
+  },
+  updated(){
+    this.scrollToEnd()
   }
 });
