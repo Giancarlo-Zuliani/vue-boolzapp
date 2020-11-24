@@ -104,5 +104,9 @@ const APP = new Vue({
       let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + x.getHours() + ':' + minutes + ':' + seconds;
       return datatext;
     },
+    deleteMessage(i){
+      this.contacts[this.chatindex].messages.splice(i,1);
+      APP.$forceUpdate()
+    }
   }
 });

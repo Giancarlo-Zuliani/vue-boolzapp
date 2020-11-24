@@ -213,6 +213,10 @@ main section div{
   display: none;
 }
 
+.dropdown:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
 .received div:hover .dropdownarrow, .sent div:hover .dropdownarrow{
   display: inline-block;
 }
