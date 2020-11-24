@@ -59,17 +59,18 @@ const APP = new Vue({
   },
   methods:{
     toogleEmoji(){
-      this.emotiHidden = !this.emotiHidden
+      this.emotiHidden = !this.emotiHidden;
+      this.$refs.newmessage.focus();
     },
     writeEmoji(i){
       this.textarea += this.emoticonArray[i];
-      this.$refs.newmessage.focus()
+      this.$refs.newmessage.focus();
     },
     textPreview(i){
-      let index = (this.contacts[i].messages.length) - 1
+      let index = (this.contacts[i].messages.length) - 1;
       let text = this.contacts[i].messages[index].text;
       let preview = text.substring(0,10) + '...';
-      return preview
+      return preview;
     },
     searchContact(){
       this.contacts.forEach(item => {
