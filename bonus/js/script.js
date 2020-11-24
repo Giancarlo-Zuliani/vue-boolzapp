@@ -1,6 +1,7 @@
 const APP = new Vue({
   el:'#app',
   data: {
+    answer:'',
     chatindex: 0 ,
     searchInput :'',
     emotiHidden : true ,
@@ -90,7 +91,8 @@ const APP = new Vue({
         this.contacts[this.chatindex].messages.push(newmessage);
         this.textarea = '';
         this.scrollDown();
-        this.autoAnswer()
+        this.getRandomApiAnswer();
+        this.autoAnswer();
       };
     },
     getDate(){
@@ -107,16 +109,32 @@ const APP = new Vue({
     },
     autoAnswer(){
       setTimeout(()=>{
-        let newmessage = {text:'si,certo',status:'received',datainfo:this.getDate(),dropdown:false};
+        let newmessage = {text:this.answer.setup + ' ' + this.answer.punchline,status:'received',datainfo:this.getDate(),dropdown:false};
         this.contacts[this.chatindex].messages.push(newmessage);
         this.scrollDown();
-      },1000)
+      },2000)
     },
     scrollDown(){
       setTimeout(()=>{
         var container = document.querySelector("section");
         container.scrollTop = container.scrollHeight;
       },5);
-    }
-  }
+    },
+    getRandomApiAnswer(){
+      var myHeaders = new Headers();
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+    fetch("https://official-joke-api.appspot.com/random_joke", requestOptions)
+    .then(response => response.text())
+    .then(result =>{
+      this.answer = JSON.parse(result);
+      console.log(this.answer)
+        })
+
+    .catch(error => console.log('error', error));
+}}
 });
