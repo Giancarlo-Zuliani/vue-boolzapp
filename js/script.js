@@ -93,7 +93,11 @@ const APP = new Vue({
     },
     getDate(){
       let x = new Date();
-      let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + x.getHours() + ':' + x.getMinutes() + ':' + x.getSeconds();
+      let minutes = x.getMinutes().toString()
+      if(minutes.length == 1) minutes = '0' + minutes;
+      let seconds = x.getSeconds().toString();
+      if(seconds.length == 1) seconds = '0' + seconds;
+      let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + x.getHours() + ':' + minutes + ':' + seconds;
       return datatext;
     },
     scrollToEnd() {
