@@ -129,13 +129,14 @@ const APP = new Vue({
         redirect: 'follow'
       };
 
-    fetch("http://api.icndb.com/jokes/random", requestOptions)
-    .then(response => response.text())
-    .then(result =>{
+      fetch("http://api.icndb.com/jokes/random", requestOptions)
+      .then(response => response.text())
+      .then(result =>{
       this.answer = JSON.parse(result);
       console.log(this.answer)
         })
 
-    .catch(error => console.log('error', error));
-}}
+        .catch(error => console.log('error', error));
+    }
+  }
 });
