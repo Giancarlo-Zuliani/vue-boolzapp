@@ -83,6 +83,18 @@ const APP = new Vue({
     },
     toggleDropdown(i){
       this.contacts[this.chatindex].messages[i].dropdown =! this.contacts[this.chatindex].messages[i].dropdown
+    },
+    addMessage(){
+      if(this.textarea !== ''){
+        let newmessage = {text:this.textarea,status:'sent',datainfo : this.getDate(),dropdown:false};
+        this.contacts[this.chatindex].messages.push(newmessage);
+        this.textarea = '';
+      };
+    },
+    getDate(){
+      let x = new Date();
+      let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + x.getHours() + ':' + x.getMinutes() + ':' + x.getSeconds();
+      return datatext;
     }
   }
 });

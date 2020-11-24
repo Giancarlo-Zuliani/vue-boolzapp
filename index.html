@@ -71,7 +71,6 @@
           <div v-for="(ele,index) in contacts[chatindex].messages" :class ="ele.status">
             <div>{{ele.text}}
               <i class="dropdownarrow fas fa-chevron-down" @click="toggleDropdown(index)"><ul class="dropdown" @mouseleave='toggleDropdown(index)' :class="{display :ele.dropdown }"> <li>elimina</li> </ul></i>
-
               <span class="chatdata">{{ele.datainfo}}</span>
             </div>
           </div>
@@ -82,7 +81,7 @@
           <div v-if='!emotiHidden' id="emojicontainer">
             <button type="button" v-for='(emoji, index) in emoticonArray' @click='writeEmoji(index)' name="button">{{emoji}}</button>
           </div>
-          <input ref="newmessage" type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio">
+          <input ref="newmessage" type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio" @keyup.enter='addMessage()'>
           <i class="fas fa-microphone"></i>
         </footer>
       </main>
