@@ -109,10 +109,10 @@ const APP = new Vue({
     },
     autoAnswer(){
       setTimeout(()=>{
-        let newmessage = {text:this.answer.setup + ' ' + this.answer.punchline,status:'received',datainfo:this.getDate(),dropdown:false};
+        let newmessage = {text:this.answer.value.joke,status:'received',datainfo:this.getDate(),dropdown:false};
         this.contacts[this.chatindex].messages.push(newmessage);
         this.scrollDown();
-      },2000)
+      },2500)
     },
     scrollDown(){
       setTimeout(()=>{
@@ -122,13 +122,14 @@ const APP = new Vue({
     },
     getRandomApiAnswer(){
       var myHeaders = new Headers();
+      myHeaders.append("Cookie", "__cfduid=d3448bb0d99f36d7b6452d9282d20fec91606234727");
       var requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
       };
 
-    fetch("https://official-joke-api.appspot.com/random_joke", requestOptions)
+    fetch("http://api.icndb.com/jokes/random", requestOptions)
     .then(response => response.text())
     .then(result =>{
       this.answer = JSON.parse(result);
