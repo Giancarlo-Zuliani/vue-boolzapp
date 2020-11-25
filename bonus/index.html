@@ -78,11 +78,11 @@
         <!-- NEW MESSAGE SECTION -->
         <footer>
           <i @click='toogleEmoji' class="far fa-smile"></i>
-          <div v-if='!emotiHidden' id="emojicontainer">
+          <div v-if='!emotiHidden' id="emojicontainer"  @mouseleave="toogleEmoji" >
             <button type="button" v-for='(emoji, index) in emoticonArray' @click='writeEmoji(index)' name="button">{{emoji}}</button>
           </div>
           <input ref="newmessage" type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio" @keyup.enter='addMessage()'>
-          <i class="fas fa-microphone"></i>
+          <i class="fas fa-paper-plane" @click="addMessage()"></i>
         </footer>
       </main>
     </div>
