@@ -98,11 +98,13 @@ const APP = new Vue({
     },
     getDate(){
       let x = new Date();
-      let minutes = x.getMinutes().toString()
+      let hours = x.getHours().toString();
+      if(hours.length === 1) hours = "0" + hours;
+      let minutes = x.getMinutes().toString();
       if(minutes.length == 1) minutes = '0' + minutes;
       let seconds = x.getSeconds().toString();
       if(seconds.length == 1) seconds = '0' + seconds;
-      let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + x.getHours() + ':' + minutes + ':' + seconds;
+      let datatext = x.getMonth() + 1 + '/' + x.getDate() + '/' + x.getFullYear() + '  ' + hours + ':' + minutes + ':' + seconds;
       return datatext;
     },
     deleteMessage(i){
@@ -111,6 +113,7 @@ const APP = new Vue({
     autoAnswer(){
       setTimeout(()=>{
         let newmessage = {text:this.answer.value.joke,status:'received',datainfo:this.getDate(),dropdown:false};
+        this.contacts[this.chatindex].lastOnline = this.getDate();
         this.contacts[this.chatindex].messages.push(newmessage);
         this.scrollDown();
         this.messageReceivedSound();
