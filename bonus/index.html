@@ -42,7 +42,7 @@
         <!-- CONTACT LIST -->
         <div id="contactlist">
           <ul>
-            <li :class='{activecontact: index===chatindex}'  v-for = "(contact,index) in contacts" v-show="contact.display" @click='chatindex = index'>
+            <li :class='{activecontact: index===chatindex}'  v-for = "(contact,index) in contacts" v-show="contact.display" @click='chatindex = index ; scrollDown()'>
               <img :src="contact.img" alt="">
               <p>{{contact.name}}</p>
               <span class="textpreview">{{textPreview(index)}}</span>
