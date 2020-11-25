@@ -89,6 +89,7 @@ const APP = new Vue({
       if(this.textarea !== ""){
         this.messageSentSound();
         let newmessage = {text:this.textarea,status:"sent",datainfo : this.getDate(),dropdown:false};
+        this.contacts[this.chatindex].lastOnline ='online'
         this.contacts[this.chatindex].messages.push(newmessage);
         this.textarea = "";
         this.scrollDown();
