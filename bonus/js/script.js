@@ -154,8 +154,10 @@ const APP = new Vue({
       audio.play();
     },
     newChat(){
-      let x = new contact('nome');
-      this.contacts.push(x);
+      if(this.searchInput!=''){
+        let x = new contact(this.searchInput);
+        this.contacts.push(x);
+      }
     }
   }
 });
