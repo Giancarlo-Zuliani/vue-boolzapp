@@ -121,7 +121,8 @@ const APP = new Vue({
     },
     autoAnswer(){
       setTimeout(()=>{
-        let newmessage = {text:this.answer.value.joke,status:"received",datainfo:this.getDate(),dropdown:false};
+        let text = this.answer.value.joke.replace(/&quot;/g , '"');
+        let newmessage = {text:text,status:"received",datainfo:this.getDate(),dropdown:false};
         this.contacts[this.chatindex].lastOnline = this.getDate();
         this.contacts[this.chatindex].messages.push(newmessage);
         this.scrollDown();
