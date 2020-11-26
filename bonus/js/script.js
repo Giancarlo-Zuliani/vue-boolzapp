@@ -155,8 +155,8 @@ const APP = new Vue({
     },
     newChat(){
       let finded = false;
-      this.contacts.filter((item) => {
-        if(item.name.includes(APP.searchInput)){
+      this.contacts.forEach((item) => {
+        if(item.name === this.searchInput){
           finded = true
         };
       });
