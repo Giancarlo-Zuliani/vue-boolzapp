@@ -83,7 +83,7 @@ const APP = new Vue({
       });
     },
     toggleDropdown(i){
-      this.contacts[this.chatindex].messages[i].dropdown =! this.contacts[this.chatindex].messages[i].dropdown
+      this.contacts[this.chatindex].messages[i].dropdown = !(this.contacts[this.chatindex].messages[i].dropdown);
     },
     addMessage(){
       if(this.textarea !== ""){

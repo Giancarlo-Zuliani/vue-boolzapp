@@ -45,7 +45,7 @@
             <li :class='{activecontact: index===chatindex}'  v-for = "(contact,index) in contacts" v-show="contact.display" @click='chatindex = index ; scrollDown()'>
               <img :src="contact.img" alt="">
               <p>{{contact.name}}</p>
-              <span class="textpreview">{{textPreview(index)}}</span>
+              <span class="textpreview"v-if="contact.messages.length >= 1 ">{{textPreview(index)}}</span>
               <span class="timeinfos">{{contact.lastOnline}}</span>
             </li>
           </ul>
