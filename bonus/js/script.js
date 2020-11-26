@@ -102,9 +102,9 @@ const APP = new Vue({
       let hours = x.getHours().toString();
       if(hours.length === 1) hours = "0" + hours;
       let minutes = x.getMinutes().toString();
-      if(minutes.length == 1) minutes = "0" + minutes;
+      if(minutes.length === 1) minutes = "0" + minutes;
       let seconds = x.getSeconds().toString();
-      if(seconds.length == 1) seconds = "0" + seconds;
+      if(seconds.length === 1) seconds = "0" + seconds;
       let datatext = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear() + "  " + hours + ":" + minutes + ":" + seconds;
       return datatext;
     },
@@ -138,8 +138,8 @@ const APP = new Vue({
       fetch("http://api.icndb.com/jokes/random", requestOptions)
       .then(response => response.text())
       .then(result =>{
-      this.answer = JSON.parse(result);
-      console.log(this.answer)
+        this.answer = JSON.parse(result);
+        console.log(this.answer)
         })
         .catch(error => console.log("error", error));
     },
@@ -152,6 +152,26 @@ const APP = new Vue({
       var audio = new Audio("assets/incoming.mp3");
       audio.volume = 0.1;
       audio.play();
+    },
+    newChat(){
+      let x = new contact('nome');
+      this.contacts.push(x);
     }
   }
 });
+
+
+class contact {
+  constructor(name){
+    this.name = name;
+    this.lastOnline = '';
+    this.img =  getRandomAvatar();
+    this.display = true;
+    this.messages = [];
+  }
+};
+
+function getRandomAvatar(){
+  let num = Math.floor(Math.random()*8) + 1;
+  return 'assets/avatar_' + num + '.jpg'
+};

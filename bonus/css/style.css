@@ -104,6 +104,7 @@ aside{
 #contactlist{
   flex-grow: 1;
   overflow: auto;
+  position:relative;
 }
 .activecontact{
   background-color: #ededed;
@@ -376,4 +377,12 @@ i{
 
 #emojicontainer button:hover{
   background-color: #919191;
+}
+
+#newchat{
+  position: absolute;
+  right:10px;
+  bottom:0;
+  cursor:pointer;
+  position:sticky;
 }
