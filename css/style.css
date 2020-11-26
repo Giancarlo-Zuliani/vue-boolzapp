@@ -1,3 +1,4 @@
+/* GENERAL RULES*/
 *{
   box-sizing: border-box;
   padding: 0;
@@ -13,14 +14,14 @@ body{
   background-image: linear-gradient( to bottom, #00bfa5 0%, #00bfa5 20%, #d4dbd9 20%, #d4dbd9 100% );
   overflow: hidden;
 }
-
+/* MAIN CONTAINER */
 #app{
   width:90%;
   height:90%;
   background: #fff;
   display:flex;
 }
-
+/* CONTACTLIST ASIDE,SEARCHBAR,USER PROFILE */
 aside{
   width:35%;
   display: flex;
@@ -96,7 +97,7 @@ aside{
 #searchbar input{
   line-height: 20px;
   width:60%;
-  color: #e1e1e1;
+  color: darkgrey;
   border: none;
   outline: none;
 }
@@ -104,10 +105,13 @@ aside{
 #contactlist{
   flex-grow: 1;
   overflow: auto;
+  overflow-x:hidden;
 }
+
 .activecontact{
   background-color: #ededed;
 }
+
 #contactlist ul li{
   display: flex;
   cursor: pointer;
@@ -123,6 +127,7 @@ aside{
   margin:5px;
 }
 
+/* CHAT CONTAINER HEADER WITH CONTACT INFOS,MESSAGES CONTAINER,FOOTER INPUT CONTAINER */
 main{
   display: flex;
   flex-direction: column;
@@ -137,17 +142,21 @@ main header{
   display: flex;
   align-items: center;
 }
+
 header img{
   max-width: 50px;
   border-radius: 50%;
 }
+
 #chatinfos{
   flex-grow: 1;
 }
+
 #chatinfos p{
   font-size: 12px;
   color:#919191;
 }
+
 header i {
   color:#919191;
   font-size: 18px;
@@ -198,12 +207,15 @@ main section div{
   background-color: #dcf8c6;
   padding-right: 30px;
 }
+
+/* DROPDOWN */
 .dropdownarrow{
   display: none;
   margin:0;
   padding:0;
   font-size: 14px;
 }
+
 .dropdown{
   position:absolute;
   background-color: #ededed;
@@ -217,10 +229,11 @@ main section div{
   text-decoration: underline;
   cursor: pointer;
 }
+
 .received div:hover .dropdownarrow, .sent div:hover .dropdownarrow{
   display: inline-block;
 }
-
+/* NEW MESSAGES SECTION */
 main footer{
   background-color: #ededed;
   height:50px;
@@ -240,12 +253,14 @@ footer input{
   min-height: 80%;
 }
 
+/* FONT AWESOME STYLES */
 i{
   color:#919191;
   font-size: 18px;
   margin: 20px;
+  cursor:pointer;
 }
-
+/* LITTLE ARROW ASIDE MESSAGES */
 .received div::before{
   content:'';
   position: absolute;
@@ -268,7 +283,6 @@ i{
   transform: rotate(45deg);
 }
 
-
 .timeinfos{
   position:absolute;
   right:12px;
@@ -285,7 +299,6 @@ i{
   color:#919191;
 }
 
-
 .chatdata{
   position:absolute;
   bottom:3px;
@@ -298,6 +311,40 @@ i{
   display: block;
 }
 
+/*EMOTICON CONTAINER*/
+#emojicontainer{
+  position: absolute;
+  top: -220px;
+  left: 10px;
+  max-width: 153px;
+  border: solid 1px #fff;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+#emojicontainer button{
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 20%;
+}
+
+#emojicontainer button:hover{
+  background-color: #919191;
+}
+/* NEW CHAT WIDGET */
+#newchat{
+  left:70%;
+  bottom:10px;
+  cursor:pointer;
+  position:sticky;
+}
+
+/* MEDIA QUERY FOR SMARTPHONE WIDTH */
 @media all and (max-width:890px){
   #userinfo h4{
     display:none;
@@ -351,29 +398,4 @@ i{
   #contactlist ul li{
     min-height:50px;
   }
-}
-
-
-#emojicontainer{
-  position: absolute;
-  top: -245px;
-  left: 10px;
-  max-width: 153px;
-  border: solid 1px #fff;
-  background-color: #fff;
-  padding: 8px;
-  border-radius: 10px;
-}
-#emojicontainer button{
-  margin: 0;
-  border: none;
-  padding: 0;
-  background: none;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 20%;
-}
-
-#emojicontainer button:hover{
-  background-color: #919191;
 }
