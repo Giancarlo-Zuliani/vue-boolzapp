@@ -1,10 +1,10 @@
-#vue-boolzapp
+# vue-boolzapp
 
-####boolean careers exercise
+#### boolean careers exercise
 
-####bonus aggiunti
+#### bonus aggiunti
 
-*possibilità di aggiungere emoticon,
-*possibilità di creare nuove chat,
-*eliminare i messaggi,
-*suoni all'invio e alla ricezione di messaggi,
+* di aggiungere emoticon,
+* possibilità di creare nuove chat,
+* eliminare i messaggi,
+* suoni all'invio e alla ricezione di messaggi,
