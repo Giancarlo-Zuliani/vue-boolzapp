@@ -59,20 +59,24 @@ const APP = new Vue({
   ]
   },
   methods:{
-    toogleEmoji(){
+    //TOGGLE EMOTICON CONTAINER
+    toggleEmoji(){
       this.emotiHidden = !this.emotiHidden;
       this.$refs.newmessage.focus();
     },
+    //WRITE DOWN EMOTICON ON TEXT INPUT
     writeEmoji(i){
       this.textarea += this.emoticonArray[i];
       this.$refs.newmessage.focus();
     },
+    //THIS FUNCTION RETURN A PREVIEW OF THE LAST MESSAGE FOR EVERY CONVERSATION
     textPreview(i){
       let index = (this.contacts[i].messages.length) - 1;
       let text = this.contacts[i].messages[index].text;
       let preview = text.substring(0,10) + "...";
       return preview;
     },
+    //SEARCH CONTACT ON KEY UP FUNCTION
     searchContact(){
       this.contacts.forEach(item => {
         if(item.name.toLowerCase().includes(this.searchInput.toLowerCase())){
@@ -82,9 +86,11 @@ const APP = new Vue({
         };
       });
     },
+    //TOOGLE DELETE DROPDOWN
     toggleDropdown(i){
       this.contacts[this.chatindex].messages[i].dropdown = !(this.contacts[this.chatindex].messages[i].dropdown);
     },
+    //SEND MESSAGES FUNCTION
     addMessage(){
       if(this.textarea !== ""){
         this.messageSentSound();
@@ -97,6 +103,7 @@ const APP = new Vue({
         this.autoAnswer();
       };
     },
+    //THIS FUNCTION RETURN DATE AND TIME IN RIGHT FORMAT
     getDate(){
       let x = new Date();
       let hours = x.getHours().toString();
@@ -108,6 +115,7 @@ const APP = new Vue({
       let datatext = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear() + "  " + hours + ":" + minutes + ":" + seconds;
       return datatext;
     },
+    //DELETE MESSAGE
     deleteMessage(i){
       this.contacts[this.chatindex].messages.splice(i,1);
     },
@@ -120,12 +128,14 @@ const APP = new Vue({
         this.messageReceivedSound();
       },1000)
     },
+    //SCROLLDOWN
     scrollDown(){
       setTimeout(()=>{
         var container = document.querySelector("section");
         container.scrollTop = container.scrollHeight;
       },5);
     },
+    //FETCH FOR RANDOM ANSWERS FROM ICNDB.COM
     getRandomApiAnswer(){
       var myHeaders = new Headers();
       myHeaders.append("Cookie", "__cfduid=d3448bb0d99f36d7b6452d9282d20fec91606234727");
@@ -143,6 +153,20 @@ const APP = new Vue({
         })
         .catch(error => console.log("error", error));
     },
+    //NEW CHAT FUNCTION
+    newChat(){
+      let finded = false;
+      this.contacts.forEach((item) => {
+        if(item.name === this.searchInput){
+          finded = true
+        };
+      });
+      if(this.searchInput!='' && finded === false){
+        let x = new contact(this.searchInput);
+        this.contacts.push(x);
+      }
+    },
+    // SOUNDS
     messageSentSound(){
       var audio = new Audio("assets/message_sent.mp3");
       audio.volume = 0.1;
@@ -152,24 +176,11 @@ const APP = new Vue({
       var audio = new Audio("assets/incoming.mp3");
       audio.volume = 0.1;
       audio.play();
-    },
-    newChat(){
-      let finded = false;
-      this.contacts.forEach((item) => {
-        if(item.name === this.searchInput){
-          finded = true
-        };
-      });
-
-      if(this.searchInput!='' && finded === false){
-        let x = new contact(this.searchInput);
-        this.contacts.push(x);
-      }
     }
   }
 });
 
-
+//CONSTRUCTOR FOR NEW CONVERSATION
 class contact {
   constructor(name){
     this.name = name;
@@ -179,7 +190,7 @@ class contact {
     this.messages = [];
   }
 };
-
+//THIS FUNCTION RETURN A RANDOM AVATAR
 function getRandomAvatar(){
   let num = Math.floor(Math.random()*8) + 1;
   return 'assets/avatar_' + num + '.jpg'
