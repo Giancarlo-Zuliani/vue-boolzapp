@@ -154,7 +154,14 @@ const APP = new Vue({
       audio.play();
     },
     newChat(){
-      if(this.searchInput!=''){
+      let finded = false;
+      this.contacts.filter((item) => {
+        if(item.name.includes(APP.searchInput)){
+          finded = true
+        };
+      });
+
+      if(this.searchInput!='' && finded === false){
         let x = new contact(this.searchInput);
         this.contacts.push(x);
       }
