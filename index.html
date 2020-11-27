@@ -55,7 +55,7 @@
       </aside>
 
       <main>
-        <!-- ACTIVE CHAT INFO -->
+        <!-- ACTIVE CHAT INFOS -->
         <header>
           <img :src="contacts[chatindex].img" alt="">
           <div id="chatinfos">
@@ -70,22 +70,30 @@
         <section>
           <div v-for="(ele,index) in contacts[chatindex].messages" :class ="ele.status">
             <div>{{ele.text}}
-              <i class="dropdownarrow fas fa-chevron-down" @click="toggleDropdown(index)"><ul class="dropdown" @mouseleave='toggleDropdown(index)' :class="{display :ele.dropdown }"> <li @click="deleteMessage(index)">elimina</li> </ul></i>
+              <!-- DROPDOWN -->
+              <i class="dropdownarrow fas fa-chevron-down" @click="toggleDropdown(index)">
+                <ul class="dropdown" @mouseleave='toggleDropdown(index)' :class="{display :ele.dropdown }">
+                  <li @click="deleteMessage(index)">elimina</li>
+                </ul>
+              </i>
               <span class="chatdata">{{ele.datainfo}}</span>
             </div>
           </div>
         </section>
         <!-- NEW MESSAGE SECTION -->
         <footer>
+          <!-- EMOTICON CONTAINER -->
           <i @click='toggleEmoji' class="far fa-smile"></i>
           <div v-if='!emotiHidden' id="emojicontainer"  @mouseleave="toggleEmoji" >
             <button type="button" v-for='(emoji, index) in emoticonArray' @click='writeEmoji(index)' name="button">{{emoji}}</button>
           </div>
+          <!-- TEXT AREA INPUT -->
           <input ref="newmessage" type="textarea" v-model='textarea' placeholder=" Scrivi un messaggio" @keyup.enter='addMessage()'>
           <i class="fas fa-paper-plane" @click="addMessage()"></i>
         </footer>
       </main>
     </div>
+    <!-- SCRIPT -->
     <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

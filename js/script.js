@@ -181,7 +181,7 @@ const APP = new Vue({
   }
 });
 
-//CONSTRUCTOR FOR NEW CONVERSATION
+//CONSTRUCTOR FOR NEW CONVERSATIONS
 class contact {
   constructor(name){
     this.name = name;
